@@ -1,0 +1,38 @@
+name: Deploy to Firebase Hosting
+
+on:
+  push:
+    branches:
+      - main # Replace with your branch name if not 'main'
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Checkout the code
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      # Setup Node.js
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18' # Ensure a compatible Node.js version
+
+      # Install Firebase CLI
+      - name: Install Firebase CLI
+        run: npm install -g firebase-tools
+
+      # Authenticate with Firebase using the Service Account Key
+      - name: Authenticate with Firebase
+        env:
+          GOOGLE_APPLICATION_CREDENTIALS: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_KEY }}
+        run: |
+          echo "${{ secrets.FIREBASE_SERVICE_ACCOUNT_KEY }}" > firebase-key.json
+          gcloud auth activate-service-account --key-file=firebase-key.json
+          firebase projects:list
+
+      # Deploy to Firebase Hosting
+      - name: Deploy to Firebase Hosting
+        run: firebase deploy --only hosting
