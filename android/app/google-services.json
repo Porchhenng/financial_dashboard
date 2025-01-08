@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "331475566135",
+    "project_id": "financial-dashboard-e22b7",
+    "storage_bucket": "financial-dashboard-e22b7.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:331475566135:android:28d92e23a252a72c8a49b2",
+        "android_client_info": {
+          "package_name": "finance.app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAul81k-QI_CzDQpzAQAJZ9-xcOquMrmD0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
