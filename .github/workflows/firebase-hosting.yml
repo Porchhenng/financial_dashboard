@@ -18,7 +18,7 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: '16' # Match Firebase CLI's Node.js requirements
+          node-version: '18' # Match Firebase CLI's Node.js requirements
 
       # Install Firebase CLI
       - name: Install Firebase CLI
