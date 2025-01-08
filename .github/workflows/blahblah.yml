@@ -27,9 +27,9 @@ jobs:
       # Authenticate with Firebase using the Service Account Key
       - name: Authenticate with Firebase
         env:
-          GOOGLE_APPLICATION_CREDENTIALS: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_KEY }}
+          FIREBASE_KEY: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_KEY }}
         run: |
-          echo "${{ secrets.FIREBASE_SERVICE_ACCOUNT_KEY }}" > firebase-key.json
+          echo "$FIREBASE_KEY" | tr -d '\r' > firebase-key.json
           gcloud auth activate-service-account --key-file=firebase-key.json
           firebase projects:list
 
