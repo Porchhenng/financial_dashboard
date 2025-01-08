@@ -114,7 +114,7 @@ class _ManageProjectScreenState extends State<ManageProjectScreen> {
 
     try {
       final response = await http.post(
-        Uri.parse('http://localhost:5000/api/branch'),
+        Uri.parse('http://localhost:5000/api/branches'),
         headers: {"Content-Type": "application/json"},
         body: json.encode({
           "branch_name": _branchNameController.text,
@@ -173,7 +173,7 @@ class _ManageProjectScreenState extends State<ManageProjectScreen> {
       };
 
       final response = await http.put(
-        Uri.parse('http://localhost:5000/api/financial-data'),
+        Uri.parse('http://localhost:5000/api/branches/financial-data'),
         headers: {"Content-Type": "application/json"},
         body: json.encode(requestData),
       );
